@@ -1,10 +1,19 @@
 -- Mason installer for LSP servers
-require('mason').setup()
-
-require('mason-lspconfig').setup {
-  ensure_installed      = {
-    "pyright", "ts_ls",          -- existing servers
-    "html", "cssls", "solidity"     -- added HTML, CSS & Solidity
+return {
+  "williamboman/mason-lspconfig.nvim",
+  dependencies = {
+    "williamboman/mason.nvim",
+    "neovim/nvim-lspconfig",
   },
-  automatic_installation = true,
+  config = function()
+    require("mason").setup()
+
+    require("mason-lspconfig").setup {
+      ensure_installed = {
+        "pyright", "ts_ls",
+        "html", "cssls", "solidity"
+      },
+      automatic_installation = true,
+    }
+  end,
 }

@@ -1,2 +1,8 @@
 -- Auto-close brackets & quotes
-require('nvim-autopairs').setup {}
+return {
+  "windwp/nvim-autopairs",
+  event = "InsertEnter",
+  config = function()
+    require("nvim-autopairs").setup({})
+  end,
+}

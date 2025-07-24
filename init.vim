@@ -22,8 +22,11 @@ call plug#begin(stdpath('data') . '/plugged')
   Plug 'nvim-lua/plenary.nvim'                                " Utility functions
   Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.6' }    " Fuzzy finder
   Plug 'windwp/nvim-autopairs'                                " Auto-close brackets/quotes
+  Plug 'MunifTanjim/nui.nvim'                                 " UI components
+  Plug 'rcarriga/nvim-notify'                                 " Notification system
 
 call plug#end()                                               " End plugin block
 
 " Hand off everything else to Lua
+lua require('core.lazy')
 lua require('unit')
