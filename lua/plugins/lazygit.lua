@@ -4,7 +4,7 @@ return {
   dependencies = { 'nvim-lua/plenary.nvim' },-- required helper lib
   config = function()
     -- Map <leader>gg to open LazyGit
-    vim.keymap.set('n', '<leader>gg', '<cmd>LazyGit<CR>', {
+    vim.keymap.set('n', '<C-g>g', '<cmd>LazyGit<CR>', {
       desc = ' Open LazyGit',
       noremap = true, silent = true,
     })
