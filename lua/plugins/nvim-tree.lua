@@ -13,7 +13,7 @@ return {
   },
   config = function()
     require("nvim-tree").setup {
-      view = { side = "left", width = 27 },
+      view = { side = "left", width = 28 },
       update_focused_file = { enable = true },
     }
   end,
