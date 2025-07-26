@@ -1,19 +1,11 @@
--- Main loader: require every module exactly once
+-- core modules
+require("core.options")
+require("core.keymaps")
+require("core.autocmds")
 
--- core/
-require('core.options')   -- UI & editing options
-require('core.keymaps')   -- custom keybindings
-require('core.autocmds')  -- autocommands & helpers
+-- plugin loader
+require("lazy").setup("plugins", {
+  defaults = { lazy = true },
+  install  = { colorscheme = { "dracula" } },
+})
 
--- plugins/
-require('plugins.nvim-tree')
-require('plugins.toggleterm')
-require('plugins.treesitter')
-require('plugins.mason')
-require('plugins.lsp')
-require('plugins.autopairs')
-require('plugins.ale')
-require('plugins.telescope')
-require('plugins.noice')
-require('plugins.trouble')
-require('plugins.lazygit')
