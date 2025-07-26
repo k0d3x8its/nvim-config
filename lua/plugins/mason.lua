@@ -1,19 +1,38 @@
 -- Mason installer for LSP servers
 return {
-  "williamboman/mason-lspconfig.nvim",
+  "williamboman/mason.nvim",
   dependencies = {
-    "williamboman/mason.nvim",
-    "neovim/nvim-lspconfig",
+    "williamboman/mason-lspconfig.nvim",
   },
-  config = function()
-    require("mason").setup()
 
-    require("mason-lspconfig").setup {
+  lazy = false,
+
+  config = function()
+
+    local mason = require("mason")
+    local mason_lspconfig = require("mason-lspconfig")
+
+    mason.setup({
+      ui = {
+        package_installed = " ",
+        package_pending = " ",
+        package_uninstalled = " "
+      }
+    })
+
+    mason_lspconfig.setup ({
       ensure_installed = {
-        "pyright", "ts_ls",
-        "html", "cssls", "solidity"
+        "pyright",
+        "ts_ls",
+        "html",
+        "cssls",
+        "solidity",
+        "lua_ls",
+        "bashls",
+        "jsonls",
+        "arduino_language_server"
       },
       automatic_installation = true,
-    }
+    })
   end,
 }
