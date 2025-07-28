@@ -4,7 +4,10 @@ return {
   build = ":TSUpdate",
   event = { "BufReadPost", "BufNewFile" },
   config = function()
-    require("nvim-treesitter.configs").setup {
+
+    local treesitter = require("nvim-treesitter.configs")
+
+    treesitter.setup {
       ensure_installed = {
         "python", "c", "cpp", "javascript", "typescript",
         "html", "css", "solidity"
