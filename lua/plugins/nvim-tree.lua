@@ -13,7 +13,7 @@ return {
   },
   config = function()
     require("nvim-tree").setup {
-      view = { side = "left", width = 30 },
+      view = { side = "left", width = 35 },
       update_focused_file = { enable = true },
       renderer = {
         indent_markers = {
