@@ -13,8 +13,21 @@ return {
   },
   config = function()
     require("nvim-tree").setup {
-      view = { side = "left", width = 28 },
+      view = { side = "left", width = 30 },
       update_focused_file = { enable = true },
+      renderer = {
+        indent_markers = {
+          enable = true,
+        },
+        icons = {
+          glyphs = {
+            folder = {
+              arrow_closed = "", -- arrow when folder is closed
+              arrow_open = "", -- arrow when folder is open
+            },
+          },
+        },
+      },
     }
   end,
 }
