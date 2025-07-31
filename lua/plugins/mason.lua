@@ -8,7 +8,6 @@ return {
   lazy = false,
 
   config = function()
-
     local mason = require("mason")
     local mason_lspconfig = require("mason-lspconfig")
 
@@ -20,19 +19,21 @@ return {
       }
     })
 
-    mason_lspconfig.setup ({
+    mason_lspconfig.setup({
       ensure_installed = {
         "pyright",
         "ts_ls",
         "html",
         "cssls",
-        "solidity",
         "lua_ls",
+        "solidity",
         "bashls",
         "jsonls",
         "arduino_language_server"
       },
       automatic_installation = true,
+      automatic_enable = false,
     })
+
   end,
 }
