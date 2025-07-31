@@ -1,32 +1,50 @@
+-- LSP server configuration
 return {
   "neovim/nvim-lspconfig",
   event = { "BufReadPre", "BufNewFile" },
   dependencies = {
-    "hrsh7th/cmp-nvim-lsp",
-    { "antosha417/nvim-lsp-file-operations", config = true},
+    "hrsh7th/cmp-nvim-lsp",                    -- for autocompletion capabilities
+    { "antosha417/nvim-lsp-file-operations", config = true }, -- file ops for LSP
   },
 
   config = function()
-    -- TODO: configure keymapping
-
     -- import lspconfig plugin
     local lspconfig = require("lspconfig")
-
-    -- import cmp-nvim-lsp plugin
+    -- import cmp-nvim-lsp plugin for enhanced completion capabilities
     local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
-    local opts = { noremap = true, silent = true }
-    local on_attach = function(client, bufnr)
-      opts.buffer = bufnr
-    end
-
-    -- used to eanble autocompletion (assign to every lsp sever config)
+    -- keymap options
     local capabilities = cmp_nvim_lsp.default_capabilities()
 
-    -- TODO: add icons for signs from font awesome
+    -- on_attach function for keymaps and formatting
+    local on_attach = function(client, bufnr)
+      local nmap = function(keys, fn, desc)
+        vim.keymap.set("n", keys, fn, { buffer = bufnr, desc = desc and "LSP: " .. desc })
+      end
+
+      -- keymaps
+      nmap("gd", vim.lsp.buf.definition, "Go to Definition")
+      nmap("K", vim.lsp.buf.hover, "Hover Docs")
+      nmap("gi", vim.lsp.buf.implementation, "Go to Implementation")
+      nmap("<leader>rn", vim.lsp.buf.rename, "Rename Symbol")
+      nmap("gr", vim.lsp.buf.references, "Find References")
+      nmap("<leader>ld", vim.diagnostic.open_float, "Line Diagnostic")
+
+      -- format on save
+      if client.server_capabilities.documentFormattingProvider then
+        vim.api.nvim_create_autocmd("BufWritePre", {
+          group = vim.api.nvim_create_augroup("LspFormatting", { clear = true }),
+          buffer = bufnr,
+          callback = function()
+            vim.lsp.buf.format({ bufnr = bufnr })
+          end,
+        })
+      end
+    end
+
     vim.diagnostic.config({
-      virtual_text = true,   -- show inline error text
-      underline    = true,   -- underline errors in the buffer
+      virtual_text = true, -- show inline error text
+      underline    = true, -- underline errors in the buffer
       signs        = {
         -- define one gutter icon per severity
         text = {
@@ -35,7 +53,7 @@ return {
           [vim.diagnostic.severity.INFO]  = " ",
           [vim.diagnostic.severity.HINT]  = " ",
         },
-        -- optionally tweak the highlight groups (uses built‑in groups by default)
+        -- optionally tweak the highlight groups (uses built-in groups by default)
         texthl = {
           [vim.diagnostic.severity.ERROR] = "DiagnosticSignError",
           [vim.diagnostic.severity.WARN]  = "DiagnosticSignWarn",
@@ -45,37 +63,29 @@ return {
       },
     })
 
-    -- configure html server
-    lspconfig.html.setup({
-      capabilities = capabilities,
-      on_attach = on_attach,
-    })
+    -- list all servers you installed via Mason (basic setup only)
+    for _, server in ipairs({
+      "html", "cssls", "ts_ls", "solidity_ls",
+      "pyright", "clangd", "arduino_language_server",
+      "bashls", "jsonls",
+    }) do
+      lspconfig[server].setup({
+        on_attach    = on_attach,
+        capabilities = capabilities,
+      })
+    end
 
-    -- ✅ configure lua_ls server
+    -- configure lua_ls server (with diagnostics fix for `vim`)
     lspconfig.lua_ls.setup({
       capabilities = capabilities,
       on_attach = on_attach,
       settings = {
         Lua = {
-          runtime = {
-            version = "LuaJIT",
-            path = vim.split(package.path, ";"),
-          },
           diagnostics = {
             globals = { "vim" }, -- fixes: undefined global `vim`
-          },
-          workspace = {
-            library = vim.api.nvim_get_runtime_file("", true),
-            checkThirdParty = false,
-          },
-          telemetry = {
-            enable = false,
           },
         },
       },
     })
-
-    --TODO: add the rest of the lsp servers for languages
-
   end,
 }
