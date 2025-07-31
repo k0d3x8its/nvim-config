@@ -2,7 +2,6 @@ return {
   -- Main completion plugin
   {
     "hrsh7th/nvim-cmp",
-    event = "InsertEnter",
     event = { "BufReadPre", "InsertEnter" },
     dependencies = {
       "hrsh7th/cmp-nvim-lsp",     -- LSP source
