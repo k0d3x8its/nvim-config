@@ -1,3 +1,5 @@
+-- lua/utils/tree_toggle.lua
+
 local mod = { first = true }
 local api = require('nvim-tree.api')
 
@@ -11,4 +13,3 @@ function mod.toggle_at_dev()
 end
 
 return mod
-
