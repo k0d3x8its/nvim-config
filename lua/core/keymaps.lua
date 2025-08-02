@@ -9,6 +9,7 @@ local opts = { noremap = true, silent = true }
 map('n', '<C-z>',
   '<cmd>lua require("plugins.nvim-tree").toggle_tree_at_dev()<CR>',
   opts)
+map('n', '<C-z>', '<cmd>lua require("plugins.nvim-tree").toggle_tree_at_dev()<CR>', opts)
 
 -- open telescope file finder with Ctrl+a
 map('n', '<C-a>', '<cmd>Telescope find_files<CR>', opts)
