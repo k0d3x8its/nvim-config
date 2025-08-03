@@ -51,7 +51,6 @@ return {
       footer[i] = buidl_txt[i] .. "" .. avalanche_logo[i]
     end
 
-    -- 6) Tell Alpha to use our footer (no global hl so inline works)
     dashboard.section.footer.val  = footer
     dashboard.section.footer.opts = {
       position = "center",
