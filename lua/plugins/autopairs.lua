@@ -1,4 +1,9 @@
 -- Auto-close brackets & quotes
+
+---@diagnostic disable: undefined-field
+-- NOTE: this tells the Lua language server to ignore "undefined-field" errors in this file.
+--       Lua language server is not aware of the "cmp.event:on" API; it thinks "event" has no field.
+
 return {
   "windwp/nvim-autopairs",
   event = "InsertEnter",
@@ -6,7 +11,6 @@ return {
     "hrsh7th/nvim-cmp",
   },
   config = function()
-
     local autopairs = require("nvim-autopairs")
 
     autopairs.setup({
