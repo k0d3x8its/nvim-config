@@ -1,9 +1,9 @@
 -- ~/.config/nvim/lua/plugins/lazygit.lua
 return {
   'kdheepak/lazygit.nvim',
-  event = "InsertEnter",                      -- the Neovim wrapper for LazyGit
+  event = "InsertEnter",
 
-  dependencies = { 'nvim-lua/plenary.nvim' }, -- required helper lib
+  dependencies = { 'nvim-lua/plenary.nvim' },
 
   config = function()
     -- Map <leader>gg to open LazyGit
