@@ -8,6 +8,5 @@ return {
       use_diagnostic_signs = true, -- uses signs defined by LSP or :sign define
     })
   end,
-  cmd = "TroubleToggle", -- lazy-load on command
+  cmd = "Trouble", -- lazy-load on command
 }
-
