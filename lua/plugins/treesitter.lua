@@ -7,7 +7,6 @@ return {
     "windwp/nvim-ts-autotag",
   },
   config = function()
-
     local treesitter = require("nvim-treesitter.configs")
 
     treesitter.setup {
@@ -17,7 +16,13 @@ return {
       },
       highlight = { enable = true },
       indent = { enable = true },
-      autotag = { enable = true},
+      --FIX: autotag completion is not working ~> tested with HTML tags
+      -- opening tag will not close ~> closing tag will complete
+      -- cursor does not insert itself in between the existing tags
+      autotag = {
+        enable = true,
+        filetypes = { "html", "xml", "jsx", "tsx" },
+      },
     }
   end,
 }
