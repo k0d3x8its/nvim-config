@@ -11,7 +11,9 @@ return {
     },
   },
   config = function()
-    require("toggleterm").setup {
+    local toggleterm = require("toggleterm")
+
+    toggleterm.setup {
       open_mapping    = [[<c-x>]],
       direction       = "horizontal",
       size            = 10,
