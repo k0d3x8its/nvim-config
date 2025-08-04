@@ -3,7 +3,7 @@ return {
   "neovim/nvim-lspconfig",
   event = { "BufReadPre", "BufNewFile" },
   dependencies = {
-    "hrsh7th/cmp-nvim-lsp",                    -- for autocompletion capabilities
+    "hrsh7th/cmp-nvim-lsp",                                   -- for autocompletion capabilities
     { "antosha417/nvim-lsp-file-operations", config = true }, -- file ops for LSP
   },
 
