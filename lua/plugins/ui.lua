@@ -19,7 +19,9 @@ return {
     dependencies = { "nvim-tree/nvim-web-devicons" },
     lazy         = false,
     config       = function()
-      require("lualine").setup({
+      local lualine = require("lualine")
+
+      lualine.setup({
         options = {
           theme                = "dracula",
           section_separators   = { left = "", right = "" },
