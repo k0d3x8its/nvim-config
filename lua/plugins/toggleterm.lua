@@ -16,10 +16,9 @@ return {
     toggleterm.setup {
       open_mapping    = [[<c-x>]],
       direction       = "horizontal",
-      size            = 10,
+      size            = 15,
       start_in_insert = true,
       close_on_exit   = false,
     }
   end,
 }
-
