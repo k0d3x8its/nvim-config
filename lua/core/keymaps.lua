@@ -19,13 +19,20 @@ map.set('n', '<A-,>', '<cmd>tabprevious<CR>', opts, { desc = "Previous tab" })
 map.set('n', '<A-.>', '<cmd>tabnext<CR>', opts, { desc = "Next tab" })
 
 -- new tab + rename with Ctrl+k
-map.set('n', '<C-k>', '<cmd>tabnew<CR><cmd>lua require("core.autocmds").rename_current_tab()<CR>', opts, { desc = "New tab" })
+map.set('n', '<C-k>', '<cmd>tabnew<CR><cmd>lua require("core.autocmds").rename_current_tab()<CR>', opts,
+  { desc = "New tab" })
 
 -- close current tab with Ctrl+l
 map.set('n', '<C-l>', '<cmd>tabclose<CR>', opts, { desc = "Close tab" })
 
--- exit terminal-mode with Esc
+-- exit Terminal mode with Esc
 map.set('t', '<Esc>', '<C-\\><C-n>', opts, { desc = "Exit terminal-mode" })
 
 -- open Todos in Telescope with Spacebar+st
 map.set('n', '<leader>st', '<cmd>TodoTelescope<CR>', opts, { desc = "Open Todos in Telescope" })
+
+-- cycle through windows in Normal mode with <Tab>
+map.set("n", "<A-w>", "<C-w>w", opts, { desc = "Cycle to next window" })
+
+-- in Terminal mode , first go to Normal mode (<C-\\><C-n>), then cycle
+map.set("t", "<A-w>", "<C-\\><C-n><C-w>w", opts, { desc = "Cycle to next window (from Terminal)" })
