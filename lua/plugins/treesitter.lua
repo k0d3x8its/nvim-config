@@ -14,9 +14,6 @@ return {
       },
       highlight = { enable = true },
       indent = { enable = true },
-      --FIX: autotag completion is not working ~> tested with HTML tags
-      -- opening tag will not close ~> closing tag will complete
-      -- cursor does not insert itself in between the existing tags
     }
   end,
 }
