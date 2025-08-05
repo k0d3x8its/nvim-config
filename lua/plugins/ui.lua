@@ -22,7 +22,7 @@ return {
       local lualine = require("lualine")
       local lazy_status = require("lazy.status")
 
-      local function lazy_updates_icon_only()
+      local function lazy_updates_icon()
         local updates = lazy_status.updates()
         if updates == "" then return "" end
         local count = updates:match("(%d+)")
@@ -38,7 +38,7 @@ return {
         sections = {
           lualine_x = {
             {
-              lazy_updates_icon_only,
+              lazy_updates_icon,
               cond = lazy_status.has_updates,
               color = { fg = "#ff9e64" },
             },
