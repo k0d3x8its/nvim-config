@@ -3,6 +3,11 @@
 return {
   "dense-analysis/ale",
 
+  ft = {
+    "python", "c", "cpp", "javascript", "typescript", "javascriptreact",
+    "typescriptreact", "sh", "json", "lua", "html", "css", "solidity"
+  },
+
   config = function()
     vim.g.ale_linters              = {
       python = { 'flake8', 'mypy' },
