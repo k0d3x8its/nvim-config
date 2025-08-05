@@ -12,7 +12,9 @@ return {
     },
   },
   config = function()
-    require("nvim-tree").setup {
+    local nvim_tree = require("nvim-tree")
+
+    nvim_tree.setup {
       view = { side = "left", width = 35 },
       update_focused_file = { enable = true },
       renderer = {
@@ -31,4 +33,3 @@ return {
     }
   end,
 }
-
