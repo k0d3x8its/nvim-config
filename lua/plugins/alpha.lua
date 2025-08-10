@@ -61,7 +61,7 @@ return {
 		end
 
 		-- ────────────────────────────────────────────────────────────────────────────
-		-- 3) RECENT FILES SECTION       FIX: file path will extend into its option if long enough
+		-- 3) RECENT FILES SECTION     FIX: file path will extend into its option if path is long enough
 		-- ────────────────────────────────────────────────────────────────────────────
 		local recent = { type = "group", val = {}, opts = { spacing = 1 } }
 
@@ -97,7 +97,7 @@ return {
 		end
 
 		-- ────────────────────────────────────────────────────────────────────────────
-		-- 4) (OPTIONAL) PROJECTS SECTION
+		-- 4) PROJECTS SECTION        NOTE: add ~/dev directory with a list of 5 most recently opened projects
 		-- ────────────────────────────────────────────────────────────────────────────
 
 		-- ────────────────────────────────────────────────────────────────────────────
@@ -126,9 +126,9 @@ return {
 		end
 
 		dashboard.section.footer.val = footer
-		dashboard.section.footer.opts = { position = "center" }
+		dashboard.section.footer.opts = { position = "left" }
 
-		-- customer layout: header → buttons → recent → footer
+		-- custom layout: header → buttons → recent → footer
 		dashboard.config.layout = {
 			{ type = "padding", val = 2 },
 			dashboard.section.header,
