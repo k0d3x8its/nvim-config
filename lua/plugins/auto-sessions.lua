@@ -1,6 +1,5 @@
 return {
 	"rmagatti/auto-session",
-	event = "VimEnter",
 	lazy = false,
 
 	config = function()
