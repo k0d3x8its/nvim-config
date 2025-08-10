@@ -97,7 +97,7 @@ return {
 		end
 
 		-- ────────────────────────────────────────────────────────────────────────────
-		-- 4) PROJECTS SECTION        NOTE: add ~/dev directory with a list of 5 most recently opened projects
+		-- 4) PROJECTS SECTION        TODO: add ~/dev directory with a list of 5 most recently opened projects
 		-- ────────────────────────────────────────────────────────────────────────────
 
 		-- ────────────────────────────────────────────────────────────────────────────
