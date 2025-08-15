@@ -1,8 +1,8 @@
 return {
 	"brianhuster/live-preview.nvim",
 	ft = { "markdown", "asciidoc", "html", "svg" },
-
 	dependencies = { "nvim-telescope/telescope.nvim" },
+	cmd = { "LivePreview" },
 
 	config = function()
 		local preview = require("livepreview.config")
