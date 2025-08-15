@@ -47,7 +47,7 @@ map.set("n", "<A-w>", "<C-w>w", keyopts("Cycle to next window"))
 -- in Terminal mode , first go to Normal mode (<C-\\><C-n>), then cycle
 map.set("t", "<A-w>", "<C-\\><C-n><C-w>w", keyopts("Cycle to next window (from Terminal mode)"))
 
--- Live Preview keymaps
+-- Live Preview keymap toggle
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = { "markdown", "asciidoc", "html", "svg" },
 	callback = function(event)
