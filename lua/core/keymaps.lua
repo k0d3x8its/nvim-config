@@ -3,6 +3,8 @@ vim.g.mapleader = " "
 
 -- custom key mappings
 local map = vim.keymap
+--local wkey = require("which-key")
+
 local function keyopts(desc, extra)
 	return vim.tbl_extend("force", { silent = true, noremap = true, desc = desc }, extra or {})
 end
@@ -57,3 +59,38 @@ vim.api.nvim_create_autocmd("FileType", {
 	end,
 	desc = "Live Preview keymaps",
 })
+
+-- Search all keymaps (Telescope)
+map.set("n", "<leader>sk", "<cmd>Telescope keymaps<CR>", keyopts("Search Keymaps"))
+
+local mod = {}
+
+function mod.register_whichkey()
+	local ok, wkey = pcall(require, "which-key")
+	if not ok then
+		return
+	end
+
+	wkey.add({
+		{ "<leader>s", group = "search" },
+		{ "<leader>g", group = "git" },
+		-- NOTE: add more groups only when adding sub-commands under a prefix
+		-- ["<leader>b"] = { name = "+buffer" },
+		-- ["<leader>p"] = { name = "+preview" },
+	})
+	-- annotate non-leader keys so they appear in global which-key help
+	wkey.add({
+		{ "<C-s>", desc = "File explorer", mode = "n" },
+		{ "<C-a>", desc = "Find file (HOME)", mode = "n" },
+		{ "<C-f>", desc = "Live Grep (HOME)", mode = "n" },
+		{ "<A-,>", desc = "Previous tab", mode = "n" },
+		{ "<A-.>", desc = "Next tab", mode = "n" },
+		{ "<C-k>", desc = "New tab + rename", mode = "n" },
+		{ "<C-l>", desc = "Close current tab", mode = "n" },
+		{ "<A-w>", desc = "Cycle windows", mode = { "n", "t" } },
+		{ "<Esc>", desc = "Exit Terminal mode", mode = "t" },
+		{ "<leader>st", desc = "Open Todos (Telescope)", mode = "n" },
+	})
+end
+
+return mod
