@@ -47,17 +47,13 @@ map.set("n", "<A-w>", "<C-w>w", keyopts("Cycle to next window"))
 -- in Terminal mode , first go to Normal mode (<C-\\><C-n>), then cycle
 map.set("t", "<A-w>", "<C-\\><C-n><C-w>w", keyopts("Cycle to next window (from Terminal mode)"))
 
--- open Live Preview
-map.set("n", "<leader>p", function()
-	require("livepreview").open()
-end, keyopts("Live Preview: Open"))
+-- Live Preview keymaps
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = { "markdown", "asciidoc", "html", "svg" },
+	callback = function(event)
+		local bufnr = event.buf
 
--- close Live Preview
-map.set("n", "<leader>pc", function()
-	require("livepreview").close()
-end, keyopts("Live Preview: Close"))
-
--- toggle Live Preview
-map.set("n", "<leader>pt", function()
-	require("livepreview").toggle()
-end, keyopts("Live Preview: Toggle"))
+		map.set("n", "<leader>p", "<cmd>LivePreview start<CR>", keyopts("Live Preview: Toggle", { buffer = bufnr }))
+	end,
+	desc = "Live Preview keymaps",
+})
