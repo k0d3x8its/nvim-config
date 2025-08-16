@@ -77,7 +77,7 @@ function mod.register_whichkey()
 		{ "<leader>r", group = "Rename symbol", icon = "󰑕 " },
 		{ "<leader>w", group = "Auto-session" },
 		{ "<leader>l", group = "Line diagnostics" },
-		-- NOTE: add more groups only when adding sub-commands under a prefix
+		-- NOTE: add more groups only when needed
 	})
 	-- annotate non-leader keys so they appear in global which-key help
 	wkey.add({
