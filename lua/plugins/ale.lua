@@ -17,6 +17,7 @@ return {
 		"html",
 		"css",
 		"solidity",
+		"yaml",
 	},
 
 	config = function()
@@ -35,6 +36,7 @@ return {
 			css = { "stylelint" },
 			solidity = { "solhint" },
 			markdown = { "markdownlint" },
+			yaml = { "yamllint" },
 		}
 
 		vim.g.ale_fix_on_save = 1
@@ -52,6 +54,7 @@ return {
 			css = { "prettier" },
 			json = { "prettier" },
 			markdown = { "prettier" },
+			yaml = { "prettier" },
 		}
 
 		vim.g.ale_lint_on_text_changed = "always"
