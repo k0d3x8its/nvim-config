@@ -21,6 +21,7 @@ return {
 				"markdown",
 				"markdown_inline",
 				"bash",
+				"yaml",
 			},
 			highlight = { enable = true },
 			indent = { enable = true },
