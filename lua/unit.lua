@@ -1,5 +1,6 @@
 -- core modules
 require("core.options")
+require("core.health_filter")
 require("core.keymaps")
 require("core.autocmds")
 
