@@ -18,32 +18,32 @@
 
 ## v0.4.0a (2025-08-04)
 
-- **♻️:** `lua requre("trouble").setup` to a local variable
+- **♻️:** `requre("trouble").setup` to a local variable
 - **➕:** linting and formating for various languages
-- **♻️:** `lua require("dracula").setup` to a local variable
+- **♻️:** `require("dracula").setup` to a local variable
 - **➕:** status icon for updates to plugins when they populate
 - **♻️:** terminal size for more view
 - **➕:** colorizer.lua
-- **♻️:** `lua require("lualine").setup` to a local variable
+- **♻️:** `require("lualine").setup` to a local variable
 - **➕:** mapping to cycle through windows - CTRL+w
 - **❌:** note referencing fixed issue
-- **♻️:** `lua requre("nvim-tree").setup` to a local variable
+- **♻️:** `requre("nvim-tree").setup` to a local variable
 - **➕:** file types to open ALE
 - **♻️:** formatting for keymaps
 - **♻️:** name of function for clarity
-- **♻️:** `lua require("noice").setup` to a local variable
+- **♻️:** `require("noice").setup` to a local variable
 
 ## v0.4.0a (2025-08-03)
 
 - **➕:** descriptions for keymaps
-- **❌:** the pre-buffer setup - `lua 'BufReadPre'`
-- **♻️:** `lua require("telescope").setup` to a local variable
+- **❌:** the pre-buffer setup - `BufReadPre`
+- **♻️:** `require("telescope").setup` to a local variable
 - **🛠️:** undefined-fields populating by disabling diagnostics
 - **♻️:** TroubleToggle to Trouble
 - **🛠️:** auto-closing tag when typing ">"
-- **♻️:** `lua require("toggleterm").setup` to a local variable
+- **♻️:** `require("toggleterm").setup` to a local variable
 - **➕:** gitsigns.lua
-- **🚀:** all mapping to modern `lua vim.keymap.set`
+- **🚀:** all mapping to modern `vim.keymap.set`
 - **❌:** comment in alpha.lua
 
 ## v0.4.0a (2025-08-02)
