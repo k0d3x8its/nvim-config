@@ -1,13 +1,35 @@
 return {
 	"brianhuster/live-preview.nvim",
 	ft = { "markdown", "asciidoc", "html", "svg" },
+	event = "VeryLazy",
 	dependencies = { "nvim-telescope/telescope.nvim" },
-	cmd = { "LivePreview" },
 
+	--BUG: Error executing Lua callback:
+	-- ...share/nvim/lazy/live-preview.nvim/plugin/livepreview.lua:64:
+	------- attempt to index a nil value
+	-- stack traceback:
+	------- ...share/nvim/lazy/live-preview.nvim/plugin/livepreview.lua:64:
+	-------------- in function <...share/nvim/lazy/live-preview.nvim/plugin/livepreview.lua:28>
+	-------------------------------------------------------------------------------
 	config = function()
-		local preview = require("livepreview.config")
+		local ok, preview = pcall(require, "livepreview.config")
 
-		preview.set({})
+		-- Guard: plugin requires Neovim >= 0.10.1
+		if vim.fn.has("nvim-0.10.1") == 0 then
+			vim.notify("live-preview.nvim requires Neovim >= 0.10.1", vim.log.levels.ERROR)
+			return
+		end
+
+		-- Load the config module safely
+		if not ok or type(preview) ~= "table" then
+			vim.notify("live-preview: failed to load livepreview.config", vim.log.levels.ERROR)
+			return
+		end
+
+		preview.set({
+			picker = "telescope",
+			port = 9000,
+		})
 
 		vim.o.autowriteall = true
 
@@ -17,7 +39,7 @@ return {
 			pattern = "*.html",
 			callback = function(args)
 				if vim.api.nvim_buf_is_valid(args.buf) and vim.bo[args.buf].modified then
-					vim.cmd([[silent! update]])
+					pcall(vim.cmd, "silent! update")
 				end
 			end,
 			desc = "Auto-save HTML so live-preview refreshes",
