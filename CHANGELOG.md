@@ -2,7 +2,7 @@
 
 ## v0.5.0a (2025-08-10)
 
-- **🐞:** a FIX reminder to fix Recent Files section
+- **🐞:** that causes the path of files to extend into the the keymap if too long
 - **➕:** NOTE reminder for future Projects section
 - **➕:** .gitignore
 - **❌:** venv directory from repository
