@@ -10,7 +10,7 @@
 
 ## v0.4.2a (2025-08-09)
 
-- **🚀:** Lazy updates status with periodic background checks
+- **🚀:** Lazy update status with periodic background checks
 
 ## v0.4.1a (2025-08-08)
 
