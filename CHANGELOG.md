@@ -18,7 +18,7 @@
 
 ## v0.4.0a (2025-08-04)
 
-- **♻️:** `requre("trouble").setup` to a local variable
+- **♻️:** `require("trouble").setup` to a local variable
 - **➕:** linting and formating for various languages
 - **♻️:** `require("dracula").setup` to a local variable
 - **➕:** status icon for updates to plugins when they populate
@@ -27,7 +27,7 @@
 - **♻️:** `require("lualine").setup` to a local variable
 - **➕:** mapping to cycle through windows - CTRL+w
 - **❌:** note referencing fixed issue
-- **♻️:** `requre("nvim-tree").setup` to a local variable
+- **♻️:** `require("nvim-tree").setup` to a local variable
 - **➕:** file types to open ALE
 - **♻️:** formatting for keymaps
 - **♻️:** name of function for clarity
