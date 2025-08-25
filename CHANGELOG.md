@@ -8,15 +8,15 @@
 - **❌:** venv directory from repository
 - **➕:** markdown linter and formatter
 
-## v0.4.2a (2025-08-09)
+## v0.4.3a (2025-08-09)
 
 - **🚀:** Lazy update status with periodic background checks
 
-## v0.4.1a (2025-08-08)
+## v0.4.2a (2025-08-08)
 
 - **🚀:** and redesigned dashboard with a new Recent Files section
 
-## v0.4.0a (2025-08-04)
+## v0.4.1a (2025-08-04)
 
 - **♻️:** `require("trouble").setup` to a local variable
 - **➕:** linting and formating for various languages
@@ -33,7 +33,7 @@
 - **♻️:** name of function for clarity
 - **♻️:** `require("noice").setup` to a local variable
 
-## v0.4.0a (2025-08-03)
+## v0.4.1a (2025-08-03)
 
 - **➕:** descriptions for keymaps
 - **❌:** the pre-buffer setup - `BufReadPre`
