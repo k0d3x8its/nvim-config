@@ -1,7 +1,41 @@
 # Changelog
 
+## v0.8.0 (2025-8-16)
+
+- **➕:** YAML to treesitter.lua
+- **➕:** YAML to lspconfig.lua
+- **➕:** YAML to ale.lua
+- **➕:** SchemaStore.nvim for LSP file operations
+- **⬆️:** lockfile
+
+## v0.7.0 (2025-8-15)
+
+- **🛠️:** NOTE to have more clarity
+- **🚀:** of which-key UI with groups and icons
+- **➕:** keymappings for which-key
+- **➕:** which-key.nvim
+- **⬆️:** comments
+- **➕:** customer formatting for Markdown files
+- **⬆️:** lockfile
+
+## v0.6.0 (2025-8-15)
+
+- **🚀:** keymaps
+- **🚀:** opts in keymaps.lua
+- **➕:** Markdown for for documentation purposes
+- **⬆️:** lockfile
+- **➕:** live-preview for HTML/Markdown
+
 ## v0.5.0a (2025-08-10)
 
+- **🛠️:** comments and descriptions for different keymaps
+- **♻️:** NOTE to TODO in alpha.lua for Projects section
+- **❌:** Perl & Ruby in the Lazy health check
+- **🛠️:** depreciated syntax
+- **⚠️:** syntax
+- **🚀:** auto-session to start as soon as Neovim opens
+- **❌:** `event = 'VimEnter'`
+- **➕:** markdown to treesitter.lua
 - **🐞:** that causes the path of files to extend into the the keymap if too long
 - **➕:** NOTE reminder for future Projects section
 - **➕:** .gitignore
@@ -89,7 +123,7 @@
 - **➕:** utilities directory
 - **🚀:** nvim-tree and the custom toggle options
 - **♻️:** leader to CTRL
-- **🚀:** lazy-lock.json - toggleterm
+- **⬆️:** lazy-lock.json - toggleterm
 - **❌:** comment that was not needed
 - **🚀:** the toggleterm
 - **➕:** utility that toggles the terminal
@@ -116,4 +150,5 @@
 **IMPROVED** = 🚀 **|**
 **CHANGED** = ♻️ **|**
 **SECURITY** = 🛡️ **|**
-**DEPRECIATED** = ⚠️
+**DEPRECIATED** = ⚠️ **|**
+**UPDATED** = ⬆️
