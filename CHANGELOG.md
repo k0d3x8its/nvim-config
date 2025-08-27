@@ -1,14 +1,32 @@
 # Changelog
 
-## v0.8.0 (2025-8-16)
+## v0.9.1a (2025-08-24)
 
+- **🐞:** causes Live Preview to crash when enacting a server
+- **➕:** README.md
+- **⬆️:** lockfile
+
+## v0.9.1a (2025-08-19)
+
+- **🛠️:** logical error for auto-session to occur properly
+- **⬆️:** lockfile
+
+## v0.9.0a (2025-08-19)
+
+- **➕:** regex
+- **❌:** warnings in the health check for Lazy wit a filter
+- **➕:** health_filter to core module
+
+## v0.8.0a (2025-08-16)
+
+- **➕:** YAML to mason.lua
 - **➕:** YAML to treesitter.lua
 - **➕:** YAML to lspconfig.lua
 - **➕:** YAML to ale.lua
 - **➕:** SchemaStore.nvim for LSP file operations
 - **⬆️:** lockfile
 
-## v0.7.0 (2025-8-15)
+## v0.7.0a (2025-08-15)
 
 - **🛠️:** NOTE to have more clarity
 - **🚀:** of which-key UI with groups and icons
@@ -18,7 +36,7 @@
 - **➕:** customer formatting for Markdown files
 - **⬆️:** lockfile
 
-## v0.6.0 (2025-8-15)
+## v0.6.0a (2025-08-15)
 
 - **🚀:** keymaps
 - **🚀:** opts in keymaps.lua
@@ -26,12 +44,15 @@
 - **⬆️:** lockfile
 - **➕:** live-preview for HTML/Markdown
 
-## v0.5.0a (2025-08-10)
+## v0.5.1a (2025-08-10)
 
 - **🛠️:** comments and descriptions for different keymaps
+- **🛠️:** depreciated syntax
+
+## v0.5.0a (2025-08-10)
+
 - **♻️:** NOTE to TODO in alpha.lua for Projects section
 - **❌:** Perl & Ruby in the Lazy health check
-- **🛠️:** depreciated syntax
 - **⚠️:** syntax
 - **🚀:** auto-session to start as soon as Neovim opens
 - **❌:** `event = 'VimEnter'`
