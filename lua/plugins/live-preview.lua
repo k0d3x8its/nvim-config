@@ -4,13 +4,6 @@ return {
 	event = "BufReadPre",
 	dependencies = { "nvim-telescope/telescope.nvim" },
 
-	--BUG: Error executing Lua callback:
-	-- ...share/nvim/lazy/live-preview.nvim/plugin/livepreview.lua:64:
-	------- attempt to index a nil value
-	-- stack traceback:
-	------- ...share/nvim/lazy/live-preview.nvim/plugin/livepreview.lua:64:
-	-------------- in function <...share/nvim/lazy/live-preview.nvim/plugin/livepreview.lua:28>
-	-------------------------------------------------------------------------------
 	config = function()
 		local ok, preview = pcall(require, "livepreview.config")
 
