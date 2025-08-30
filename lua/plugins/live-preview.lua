@@ -1,7 +1,7 @@
 return {
 	"brianhuster/live-preview.nvim",
 	ft = { "markdown", "asciidoc", "html", "svg" },
-	event = "VeryLazy",
+	event = "BufReadPre",
 	dependencies = { "nvim-telescope/telescope.nvim" },
 
 	--BUG: Error executing Lua callback:
@@ -29,6 +29,9 @@ return {
 		preview.set({
 			picker = "telescope",
 			port = 9000,
+			browser = "default",
+			dynamic_root = true,
+			sync_scroll = true,
 		})
 
 		vim.o.autowriteall = true
