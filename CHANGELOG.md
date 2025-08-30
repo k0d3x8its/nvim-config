@@ -1,20 +1,24 @@
 # Changelog
 
-## v0.9.1a (2025-08-24)
+## v0.9.2 (2025-08-29)
+
+- **🛠️:** Live Preview from crashing
+
+## v0.9.1 (2025-08-24)
 
 - **🐞:** causes Live Preview to crash when enacting a server
 - **➕:** README.md
 - **⬆️:** lockfile
 
-## v0.9.1a (2025-08-19)
+## v0.9.1 (2025-08-19)
 
 - **🛠️:** logical error for auto-session to occur properly
 - **⬆️:** lockfile
 
-## v0.9.0a (2025-08-19)
+## v0.9.0 (2025-08-19)
 
 - **➕:** regex
-- **❌:** warnings in the health check for Lazy wit a filter
+- **❌:** warnings in the health check, for Lazy, with the filter
 - **➕:** health_filter to core module
 
 ## v0.8.0a (2025-08-16)
