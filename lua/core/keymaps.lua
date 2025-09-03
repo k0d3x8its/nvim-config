@@ -3,7 +3,6 @@ vim.g.mapleader = " "
 
 -- custom key mappings
 local map = vim.keymap
---local wkey = require("which-key")
 
 local function keyopts(desc, extra)
 	return vim.tbl_extend("force", { silent = true, noremap = true, desc = desc }, extra or {})
