@@ -34,12 +34,12 @@ return {
 				cmd = "<cmd>lua require('utils.telescope_home').find_files()<CR>",
 			},
 			{
-				key = "SPC fs",
+				key = "SPC fw",
 				icon = " ",
 				desc = "Find Word",
 				cmd = "<cmd>lua require('utils.telescope_home').live_grep()<CR>",
 			},
-			{ key = "SPC wr", icon = "󰁯 ", desc = "Restore Session", cmd = "<cmd>SessionRestore<CR>" },
+			{ key = "SPC rs", icon = "󰁯 ", desc = "Restore Session", cmd = "<cmd>SessionRestore<CR>" },
 			{
 				key = "SPC cf",
 				icon = " ",
@@ -97,7 +97,8 @@ return {
 		end
 
 		-- ────────────────────────────────────────────────────────────────────────────
-		-- 4) PROJECTS SECTION        TODO: add ~/dev directory with a list of 5 most recently opened projects
+		-- 4) PROJECTS SECTION
+		-- TODO: add ~/dev directory with a list of 5 most recently opened projects
 		-- ────────────────────────────────────────────────────────────────────────────
 
 		-- ────────────────────────────────────────────────────────────────────────────
