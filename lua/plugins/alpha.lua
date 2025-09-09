@@ -1,150 +1,150 @@
 return {
-	"goolord/alpha-nvim",
-	dependencies = { "nvim-tree/nvim-web-devicons" },
-	event = "VimEnter",
+  "goolord/alpha-nvim",
+  dependencies = { "nvim-tree/nvim-web-devicons" },
+  event = "VimEnter",
 
-	config = function()
-		local alpha = require("alpha")
-		local dashboard = require("alpha.themes.dashboard")
-		local devicons = require("nvim-web-devicons")
+  config = function()
+    local alpha = require("alpha")
+    local dashboard = require("alpha.themes.dashboard")
+    local devicons = require("nvim-web-devicons")
 
-		-- ────────────────────────────────────────────────────────────────────────────
-		-- 1) HEADER
-		-- ────────────────────────────────────────────────────────────────────────────
+    -- ────────────────────────────────────────────────────────────────────────────
+    -- 1) HEADER
+    -- ────────────────────────────────────────────────────────────────────────────
 
-		dashboard.section.header.val = {
-			"██╗  ██╗ ██████╗ ██████╗ ██████╗ ██╗  ██╗    ██╗██████╗ ███████╗",
-			"██║ ██╔╝██╔═████╗██╔══██╗╚════██╗╚██╗██╔╝    ██║██╔══██╗██╔════╝",
-			"█████╔╝ ██║██╔██║██║  ██║ █████╔╝ ╚███╔╝     ██║██║  ██║█████╗  ",
-			"██╔═██╗ ████╔╝██║██║  ██║ ╚═══██╗ ██╔██╗     ██║██║  ██║██╔══╝  ",
-			"██║  ██╗╚██████╔╝██████╔╝██████╔╝██╔╝ ██╗    ██║██████╔╝███████╗",
-			"╚═╝  ╚═╝ ╚═════╝ ╚═════╝ ╚═════╝ ╚═╝  ╚═╝    ╚═╝╚═════╝ ╚══════╝",
-		}
+    dashboard.section.header.val = {
+      "██╗  ██╗ ██████╗ ██████╗ ██████╗ ██╗  ██╗    ██╗██████╗ ███████╗",
+      "██║ ██╔╝██╔═████╗██╔══██╗╚════██╗╚██╗██╔╝    ██║██╔══██╗██╔════╝",
+      "█████╔╝ ██║██╔██║██║  ██║ █████╔╝ ╚███╔╝     ██║██║  ██║█████╗  ",
+      "██╔═██╗ ████╔╝██║██║  ██║ ╚═══██╗ ██╔██╗     ██║██║  ██║██╔══╝  ",
+      "██║  ██╗╚██████╔╝██████╔╝██████╔╝██╔╝ ██╗    ██║██████╔╝███████╗",
+      "╚═╝  ╚═╝ ╚═════╝ ╚═════╝ ╚═════╝ ╚═╝  ╚═╝    ╚═╝╚═════╝ ╚══════╝",
+    }
 
-		-- ────────────────────────────────────────────────────────────────────────────
-		-- 2) KEYMAPS SECTION
-		-- ────────────────────────────────────────────────────────────────────────────
+    -- ────────────────────────────────────────────────────────────────────────────
+    -- 2) KEYMAPS SECTION
+    -- ────────────────────────────────────────────────────────────────────────────
 
-		local keymap_defs = {
-			{ key = "SPC nf", icon = " ", desc = "New File", cmd = "<cmd>ene<CR>" },
-			{
-				key = "SPC ff",
-				icon = " ",
-				desc = "Find File",
-				cmd = "<cmd>lua require('utils.telescope_home').find_files()<CR>",
-			},
-			{
-				key = "SPC fw",
-				icon = " ",
-				desc = "Find Word",
-				cmd = "<cmd>lua require('utils.telescope_home').live_grep()<CR>",
-			},
-			{ key = "SPC rs", icon = "󰁯 ", desc = "Restore Session", cmd = "<cmd>SessionRestore<CR>" },
-			{
-				key = "SPC cf",
-				icon = " ",
-				desc = "NVIM Config",
-				cmd = "<cmd>lua require('utils.config_tree_toggle').toggle_at_config()<CR>",
-			},
-			{ key = "q", icon = " ", desc = "Quit NVIM", cmd = "<cmd>qa<CR>" },
-		}
+    local keymap_defs = {
+      { key = "SPC nf", icon = " ", desc = "New File", cmd = "<cmd>ene<CR>" },
+      {
+        key = "SPC ff",
+        icon = " ",
+        desc = "Find File",
+        cmd = "<cmd>lua require('utils.telescope_home').find_files()<CR>",
+      },
+      {
+        key = "SPC fw",
+        icon = " ",
+        desc = "Find Word",
+        cmd = "<cmd>lua require('utils.telescope_home').live_grep()<CR>",
+      },
+      { key = "SPC rs", icon = "󰁯 ", desc = "Restore Session", cmd = "<cmd>SessionRestore<CR>" },
+      {
+        key = "SPC cf",
+        icon = " ",
+        desc = "NVIM Config",
+        cmd = "<cmd>lua require('utils.config_tree_toggle').toggle_at_config()<CR>",
+      },
+      { key = "q", icon = " ", desc = "Quit NVIM", cmd = "<cmd>qa<CR>" },
+    }
 
-		local keymaps = { type = "group", val = {}, opts = { spacing = 1 } }
-		-- header for the keymaps group
-		table.insert(keymaps.val, { type = "text", val = "  Keymaps", opts = { hl = "Title", position = "center" } })
+    local keymaps = { type = "group", val = {}, opts = { spacing = 1 } }
+    -- header for the keymaps group
+    table.insert(keymaps.val, { type = "text", val = "  Keymaps", opts = { hl = "Title", position = "center" } })
 
-		for _, m in ipairs(keymap_defs) do
-			local label = string.format("%s  %s", m.icon, m.desc)
-			local btn = dashboard.button(m.key, label, m.cmd)
-			btn.opts.position = "center"
-			table.insert(keymaps.val, btn)
-		end
+    for _, m in ipairs(keymap_defs) do
+      local label = string.format("%s  %s", m.icon, m.desc)
+      local btn = dashboard.button(m.key, label, m.cmd)
+      btn.opts.position = "center"
+      table.insert(keymaps.val, btn)
+    end
 
-		-- ────────────────────────────────────────────────────────────────────────────
-		-- 3) RECENT FILES SECTION     FIX: file path will extend into its option if path is long enough
-		-- ────────────────────────────────────────────────────────────────────────────
-		local recent = { type = "group", val = {}, opts = { spacing = 1 } }
+    -- ────────────────────────────────────────────────────────────────────────────
+    -- 3) RECENT FILES SECTION     FIX: file path will extend into its option if path is long enough
+    -- ────────────────────────────────────────────────────────────────────────────
+    local recent = { type = "group", val = {}, opts = { spacing = 1 } }
 
-		table.insert(recent.val, {
-			type = "text",
-			val = "  Recent Files",
-			opts = { hl = "Title", position = "center" },
-		})
+    table.insert(recent.val, {
+      type = "text",
+      val = "  Recent Files",
+      opts = { hl = "Title", position = "center" },
+    })
 
-		-- Keep only real files
-		local files = {}
-		for _, f in ipairs(vim.v.oldfiles) do
-			if #files >= 5 then
-				break
-			end
-			if f ~= "" and vim.fn.filereadable(f) == 1 then
-				table.insert(files, f)
-			end
-		end
+    -- Keep only real files
+    local files = {}
+    for _, f in ipairs(vim.v.oldfiles) do
+      if #files >= 5 then
+        break
+      end
+      if f ~= "" and vim.fn.filereadable(f) == 1 then
+        table.insert(files, f)
+      end
+    end
 
-		for i, file in ipairs(files) do
-			local display = vim.fn.fnamemodify(file, ":~")
-			local ext = vim.fn.fnamemodify(file, ":e")
-			local icon = devicons.get_icon(file, ext, { default = true }) or " "
-			local label = icon .. "  " .. display
+    for i, file in ipairs(files) do
+      local display = vim.fn.fnamemodify(file, ":~")
+      local ext = vim.fn.fnamemodify(file, ":e")
+      local icon = devicons.get_icon(file, ext, { default = true }) or " "
+      local label = icon .. "  " .. display
 
-			-- fnameescape = handles spaces, #, etc.
-			local cmd = "<cmd>e " .. vim.fn.fnameescape(file) .. "<CR>"
+      -- fnameescape = handles spaces, #, etc.
+      local cmd = "<cmd>e " .. vim.fn.fnameescape(file) .. "<CR>"
 
-			local btn = dashboard.button("SPC " .. i, label, cmd)
-			btn.opts.position = "center"
-			table.insert(recent.val, btn)
-		end
+      local btn = dashboard.button("SPC " .. i, label, cmd)
+      btn.opts.position = "center"
+      table.insert(recent.val, btn)
+    end
 
-		-- ────────────────────────────────────────────────────────────────────────────
-		-- 4) PROJECTS SECTION
-		-- TODO: add ~/dev directory with a list of 5 most recently opened projects
-		-- ────────────────────────────────────────────────────────────────────────────
+    -- ────────────────────────────────────────────────────────────────────────────
+    -- 4) PROJECTS SECTION
+    -- TODO: add ~/dev directory with a list of 5 most recently opened projects
+    -- ────────────────────────────────────────────────────────────────────────────
 
-		-- ────────────────────────────────────────────────────────────────────────────
-		-- 5) FOOTER
-		-- ────────────────────────────────────────────────────────────────────────────
-		local avalanche_logo = {
-			"         ++         ",
-			"        ++++        ",
-			"       ++++  +      ",
-			"      ++++  +++     ",
-			"     ++++  +++++    ",
-		}
+    -- ────────────────────────────────────────────────────────────────────────────
+    -- 5) FOOTER
+    -- ────────────────────────────────────────────────────────────────────────────
+    local avalanche_logo = {
+      "         ++         ",
+      "        ++++        ",
+      "       ++++  +      ",
+      "      ++++  +++     ",
+      "     ++++  +++++    ",
+    }
 
-		local buidl_txt = {
-			" ██████╗ ██╗   ██╗██╗██████╗ ██╗          ██████╗ ███╗   ██╗    ",
-			" ██╔══██╗██║   ██║██║██╔══██╗██║         ██╔═══██╗████╗  ██║    ",
-			" ██████╔╝██║   ██║██║██║  ██║██║         ██║   ██║██╔██╗ ██║    ",
-			" ██╔══██╗██║   ██║██║██║  ██║██║         ██║   ██║██║╚██╗██║    ",
-			" ██████╔╝╚██████╔╝██║██████╔╝███████╗    ╚██████╔╝██║ ╚████║    ",
-		}
+    local buidl_txt = {
+      " ██████╗ ██╗   ██╗██╗██████╗ ██╗          ██████╗ ███╗   ██╗    ",
+      " ██╔══██╗██║   ██║██║██╔══██╗██║         ██╔═══██╗████╗  ██║    ",
+      " ██████╔╝██║   ██║██║██║  ██║██║         ██║   ██║██╔██╗ ██║    ",
+      " ██╔══██╗██║   ██║██║██║  ██║██║         ██║   ██║██║╚██╗██║    ",
+      " ██████╔╝╚██████╔╝██║██████╔╝███████╗    ╚██████╔╝██║ ╚████║    ",
+    }
 
-		local footer = {}
+    local footer = {}
 
-		for i = 1, #buidl_txt do
-			footer[i] = buidl_txt[i] .. "" .. avalanche_logo[i]
-		end
+    for i = 1, #buidl_txt do
+      footer[i] = buidl_txt[i] .. "" .. avalanche_logo[i]
+    end
 
-		dashboard.section.footer.val = footer
-		dashboard.section.footer.opts = { position = "left" }
+    dashboard.section.footer.val = footer
+    dashboard.section.footer.opts = { position = "center" }
 
-		-- custom layout: header → buttons → recent → footer
-		dashboard.config.layout = {
-			{ type = "padding", val = 2 },
-			dashboard.section.header,
-			{ type = "padding", val = 2 },
-			keymaps,
-			{ type = "padding", val = 1 },
-			recent,
-			{ type = "padding", val = 1 },
-			dashboard.section.footer,
-		}
+    -- custom layout: header → buttons → recent → footer
+    dashboard.config.layout = {
+      { type = "padding", val = 2 },
+      dashboard.section.header,
+      { type = "padding", val = 2 },
+      keymaps,
+      { type = "padding", val = 1 },
+      recent,
+      { type = "padding", val = 1 },
+      dashboard.section.footer,
+    }
 
-		-- Send config to alpha
-		alpha.setup(dashboard.config)
+    -- Send config to alpha
+    alpha.setup(dashboard.config)
 
-		-- Disable folding on alpha buffer
-		vim.cmd([[autocmd FileType alpha setlocal nofoldenable]])
-	end,
+    -- Disable folding on alpha buffer
+    vim.cmd([[autocmd FileType alpha setlocal nofoldenable]])
+  end,
 }
