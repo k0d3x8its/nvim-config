@@ -1,5 +1,23 @@
 # Changelog
 
+## v0.9.6 (2025-10-21)
+
+- **🐞:** causing live-preview to crash
+- **🛠️:** bug causing live-preview to crash
+
+## v0.9.5 (2025-10-19)
+
+- **⬆️:** LSP configuration to reflect format provided by developers
+
+## v0.9.4 (2025-09-08)
+
+- **🚀:** dashboard footer to be properly centered
+
+## v0.9.3 (2025-09-02)
+
+- **❌:** unwanted comment
+- **🚀:** some keymappyings to be more relevant
+
 ## v0.9.2 (2025-08-29)
 
 - **🛠️:** Live Preview from crashing
