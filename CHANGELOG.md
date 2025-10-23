@@ -1,39 +1,39 @@
 # Changelog
 
-## v0.9.6 (2025-10-21)
+## v0.9.6b (2025-10-21)
 
 - **🐞:** causing live-preview to crash
 - **🛠️:** bug causing live-preview to crash
 
-## v0.9.5 (2025-10-19)
+## v0.9.5b (2025-10-19)
 
 - **⬆️:** LSP configuration to reflect format provided by developers
 
-## v0.9.4 (2025-09-08)
+## v0.9.4b (2025-09-08)
 
 - **🚀:** dashboard footer to be properly centered
 
-## v0.9.3 (2025-09-02)
+## v0.9.3b (2025-09-02)
 
 - **❌:** unwanted comment
 - **🚀:** some keymappyings to be more relevant
 
-## v0.9.2 (2025-08-29)
+## v0.9.2b (2025-08-29)
 
 - **🛠️:** Live Preview from crashing
 
-## v0.9.1 (2025-08-24)
+## v0.9.1b (2025-08-24)
 
 - **🐞:** causes Live Preview to crash when enacting a server
 - **➕:** README.md
 - **⬆️:** lockfile
 
-## v0.9.1 (2025-08-19)
+## v0.9.1b (2025-08-19)
 
 - **🛠️:** logical error for auto-session to occur properly
 - **⬆️:** lockfile
 
-## v0.9.0 (2025-08-19)
+## v0.9.0b (2025-08-19)
 
 - **➕:** regex
 - **❌:** warnings in the health check, for Lazy, with the filter
