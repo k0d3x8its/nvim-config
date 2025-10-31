@@ -21,6 +21,9 @@ return {
     config       = function()
       local lualine = require("lualine")
       local lazy_status = require("lazy.status")
+      local pio_status = require("utils.pio_status")
+
+      pio_status.setup()
 
       local function lazy_updates_icon()
         local updates = lazy_status.updates()
@@ -36,6 +39,13 @@ return {
           component_separators = { left = " ", right = "" },
         },
         sections = {
+          lualine_c = {
+            { "filename", symbols = { unnamed = "[terminal]" } },
+            {
+              pio_status.badge,
+              padding = { left = 0, right = 0 },
+            },
+          },
           lualine_x = {
             {
               lazy_updates_icon,
