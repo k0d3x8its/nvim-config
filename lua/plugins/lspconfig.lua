@@ -91,6 +91,20 @@ return {
       vim.lsp.enable(server)
     end
 
+    vim.lsp.config('clangd', {
+      capabilities = capabilities,
+      on_attach = on_attach,
+      filetypes = { "c", "cpp", "objc", "objcpp", "arduino" },
+      on_new_config = function(new_config, new_root_dir)
+        local compile_commands_path = vim.fs.find("compile_commands.json", { path = new_root_dir, upward = true })[1]
+
+        if compile_commands_path then
+          local compile_commands_dir = vim.fs.dirname(compile_commands_path)
+          new_config.cmd = { "clangd", "--compile-commands-dir=" .. compile_commands_dir }
+        end
+      end,
+    })
+
     -- configure lua_ls server (with diagnostics fix for `vim`)
     vim.lsp.config('lua_ls', {
       capabilities = capabilities,
