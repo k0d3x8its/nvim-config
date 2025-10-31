@@ -10,6 +10,8 @@ return {
       desc = "Toggle Dev Terminal",
     },
   },
+  cmd = { "ToggleTerm", "ToggleTermToggleAll", "TermExec" },
+
   config = function()
     local toggleterm = require("toggleterm")
 
