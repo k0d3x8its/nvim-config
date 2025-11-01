@@ -139,12 +139,16 @@ end
 -- Do not steal <leader>p from Live Preview filetypes
 local live_preview_filetypes = { markdown = true, asciidoc = true, html = true, svg = true }
 
+local function is_live_preview_filetype(bufnr)
+  local filetype = vim.bo[bufnr or 0].filetype
+  return live_preview_filetypes[filetype] == true
+end
+
 vim.api.nvim_create_autocmd({ "BufEnter", "DirChanged" }, {
   desc = "PlatformIO: buffer-local <leader>p only in PlatformIO projects",
   callback = function(event)
     local buffer_number = event.buf or 0
     local buffer_type = vim.bo[buffer_number].buftype
-    local current_filetype = vim.bo[buffer_number].filetype
 
     -- Ignore non-file buffers (Noice/NUI floats, help, terminal, quickfix, etc)
     if buffer_type ~= "" then
@@ -152,8 +156,7 @@ vim.api.nvim_create_autocmd({ "BufEnter", "DirChanged" }, {
     end
 
     -- Respect LivePreview mapping in those filetypes
-    if live_preview_filetypes[current_filetype] then
-      pcall(vim.keymap.del, "n", "<leader>p", { buffer = buffer_number })
+    if is_live_preview_filetype(buffer_number) then
       return
     end
 
