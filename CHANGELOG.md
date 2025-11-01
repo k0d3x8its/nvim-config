@@ -1,39 +1,63 @@
 # Changelog
 
-## v0.9.6b (2025-10-21)
+## 1.0.0b (2025-10-30)
+
+- **➕:** PlatformIO
+- **➕:** PlatformIO support to keymaps
+- **➕:** PlatformIO status in Lualine section C
+- **⬆️:** LSP configuration to support PlatformIO filetypes
+- **➕:** PlatformIO support to ToggleTerm
+- **➕:** PlatformIO status to Lualine UI
+
+## v0.9.9a (2025-10-30)
+
+- **🐞:** causing Live Preview to not be visible in Leader menu
+- **🛠️:** bug causing Live Preview to not be visible in Leader menu
+
+## v0.9.8a (2025-10-29)
+
+- **🐞:** causing auto-session to be suppressed
+- **🛠️:** bug causing auto-session to be suppressed
+
+## v0.9.7a (2025-10-28)
+
+- **🐞:** causing auto-session to crash
+- **🛠️:** bug causing auto-session to crash
+
+## v0.9.6a (2025-10-21)
 
 - **🐞:** causing live-preview to crash
 - **🛠️:** bug causing live-preview to crash
 
-## v0.9.5b (2025-10-19)
+## v0.9.5a (2025-10-19)
 
 - **⬆️:** LSP configuration to reflect format provided by developers
 
-## v0.9.4b (2025-09-08)
+## v0.9.4a (2025-09-08)
 
 - **🚀:** dashboard footer to be properly centered
 
-## v0.9.3b (2025-09-02)
+## v0.9.3a (2025-09-02)
 
 - **❌:** unwanted comment
 - **🚀:** some keymappyings to be more relevant
 
-## v0.9.2b (2025-08-29)
+## v0.9.2a (2025-08-29)
 
 - **🛠️:** Live Preview from crashing
 
-## v0.9.1b (2025-08-24)
+## v0.9.1a (2025-08-24)
 
 - **🐞:** causes Live Preview to crash when enacting a server
 - **➕:** README.md
 - **⬆️:** lockfile
 
-## v0.9.1b (2025-08-19)
+## v0.9.1a (2025-08-19)
 
 - **🛠️:** logical error for auto-session to occur properly
 - **⬆️:** lockfile
 
-## v0.9.0b (2025-08-19)
+## v0.9.0a (2025-08-19)
 
 - **➕:** regex
 - **❌:** warnings in the health check, for Lazy, with the filter
